@@ -1,0 +1,62 @@
+from typing import Dict
+from extensions import registry
+from maltego_trx.maltego import UIM_TYPES, MaltegoMsg, MaltegoTransform, UIM_PARTIAL
+from maltego_trx.decorator_registry import TransformSetting
+from maltego_trx.transform import DiscoverableTransform
+from maltego_trx.entities import Phrase
+from entities.SplunkEventEntity import SplunkEventEntity
+
+from splunk_api_full.splunk_client import SplunkService
+from splunklib.results import Message
+from settings import token_global_setting
+
+
+splunk_example_index_input_setting = TransformSetting(
+        name="splunk_example_index_input",
+        display_name="Splunk index",
+        setting_type="string",
+        popup=True
+)
+
+
+@registry.register_transform(display_name="Index Search",
+                             input_entity=Phrase,
+                             description="Retrieve results on a given index in Splunk.",
+                             output_entities=[Phrase],
+                             settings=[token_global_setting, splunk_example_index_input_setting])
+class IndexSearch(DiscoverableTransform):
+
+    @classmethod
+    def create_entities(cls, request: MaltegoMsg, response: MaltegoTransform):
+        try:
+            token = request.getTransformSetting(token_global_setting.name)
+            count = request.Slider
+            splunk_index = request.getTransformSetting(splunk_example_index_input_setting.name)
+
+            if not splunk_index:
+                message = "Missing 'splunk_index' in transform settings"
+                response.addUIMessage(message, UIM_PARTIAL)
+                return
+
+            # query to retrieve results from the given index
+            splunk_query = f"search index={splunk_index} | earliest=-2y and latest=now"
+
+            results = SplunkService.run_splunk_search(
+                token=token,
+                query=splunk_query,
+                count=count
+            )
+
+            for result in results:
+                if isinstance(result, Dict):
+                    raw_value = result.get("raw", "").replace("\n", " ")
+                    entity = SplunkEventEntity()
+                    entity.setValue(raw_value)
+                    entity.set_generic_properties(result)
+                    entity.set_meta()
+                    response.entities.append(entity)
+                elif isinstance(result, Message):
+                    response.addUIMessage(f"Splunk Message: {result}")
+
+        except Exception as e:
+            response.addUIMessage(f"Error: {e}", UIM_TYPES["partial"])

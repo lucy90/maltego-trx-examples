@@ -1,0 +1,10 @@
+Name,Type,Display,DefaultValue,Optional,Popup
+global#splunk_example_token,string,Splunk Token,,True,Yes
+splunk_example_bearer_token,string,Splunk Token,,False,Yes
+splunk_example_daterange,daterange,Date Range,,False,Yes
+splunk_example_index_input,string,Splunk index,,False,Yes
+splunk_example_session_key,string,Splunk Token,,False,Yes
+splunk_example_sort_input,string,Splunk field which search results should be sorted by,,False,Yes
+splunk_example_username,string,Splunk Username,,False,Yes
+splunk_example_password,string,Splunk Password,,False,Yes
+splunk_example_search_input,string,Splunk field which search results using the given value,,False,Yes
