@@ -32,19 +32,19 @@ Refer to [session key login](/transforms/splunk-trx-examples/splunk_api_auth/ses
 
 ## Log in using your username and password
 
-Refer to [username and password login](\splunk_api_auth\username_password.py)
+Refer to [username and password login](/transforms/splunk-trx-examples/splunk_api_auth/username_password.py)
 
 
 # Splunk Auth Example Transforms
 
 ## Bearer Token
-Refer to [bearer token auth transform](\transforms\BearerTokenAuth.py)
+Refer to [bearer token auth transform](/transforms/splunk-trx-examples/transforms/BearerTokenAuth.py)
 
 ## Session Key
-Refer to [session key auth transform](\transforms\SessionKeyAuth.py)
+Refer to [session key auth transform](/transforms/splunk-trx-examples/transforms/SessionKeyAuth.py)
 
 ## Username and Password
-Refer to [username and password transform](\transforms\UsernamePasswordAuth.py)
+Refer to [username and password transform](/transforms/splunk-trx-examples/transforms/UsernamePasswordAuth.py)
 
 # Splunk Search Example Transforms
 
@@ -71,7 +71,7 @@ https://dev.splunk.com/enterprise/docs/devtools/python/sdk-python/howtousesplunk
 
 The code example runs a Splunk search query to retrieve the results from the main index from the last 2 years
 
-Refer to [base search](\transforms\BaseSearch.py)
+Refer to [base search](/transforms/splunk-trx-examples/transforms/BaseSearch.py)
 
 https://docs.splunk.com/Documentation/SCS/current/Search/Timevariables
 
@@ -80,26 +80,25 @@ https://docs.splunk.com/Documentation/SCS/current/Search/Timevariables
 
 The sample transform contains a date time range filter that searches the main index for the given date time range
 
-Refer to [date time range search](\transforms\DateTimeSearch.py)
+Refer to [date time range search](/transforms/splunk-trx-examples/transforms/DateTimeSearch.py)
 
 
 ## Index search
 
 The sample transform contains a setting to input a Splunk index name to allow filtering of search results based on index
 
-Refer to [index search](\transforms\IndexSearch.py)
+Refer to [index search](/transforms/splunk-trx-examples/transforms/IndexSearch.py)
 
 
 ## Where condition search
 
-
-Refer to [where search](\transforms\WhereSearch.py)
+Refer to [where search](/transforms/splunk-trx-examples/transforms/WhereSearch.py)
 
 https://docs.splunk.com/Documentation/SCS/current/SearchReference/WhereCommandOverview
 
 
 ## Sort search
 
-Refer to [sort search](\transforms\SortSearch.py)
+Refer to [sort search](/transforms/splunk-trx-examples/transforms/SortSearch.py)
 
 https://docs.splunk.com/Documentation/SCS/current/SearchReference/SortCommandOverview
