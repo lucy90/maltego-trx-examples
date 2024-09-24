@@ -24,7 +24,7 @@ Here are the different ways to connect to Splunk Enterprise.
 
 ## Log in using a bearer token
 
-Refer to [bearer token login](/splunk_api_auth/bearer_token.py)
+Refer to [bearer token login](\splunk_api_auth\bearer_token.py)
 
 ## Log in using a session key
 
