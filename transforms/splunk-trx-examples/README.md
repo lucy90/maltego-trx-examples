@@ -28,7 +28,7 @@ Refer to [bearer token login](/transforms/splunk-trx-examples/splunk_api_auth/be
 
 ## Log in using a session key
 
-Refer to [session key login](\transforms\splunk-trx-examples\splunk_api_auth\session_key.py)
+Refer to [session key login](/transforms/splunk-trx-examples/splunk_api_auth/session_key.py)
 
 ## Log in using your username and password
 
